@@ -44,6 +44,8 @@ void AMainCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+
+
 }
 
 // Called every frame
@@ -91,3 +93,5 @@ void AMainCharacter::MoveRight(float Value)
 		AddMovementInput(direction, Value);
 	}
 }
+
+// Function goes here for event triggering

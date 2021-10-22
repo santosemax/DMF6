@@ -49,12 +49,13 @@ void AMainCharacter::AnimationSetup()
 	RunningLeftAnim = ConstructorStatics.RunningLeftAsset.Get();
 	IdleRightAnim = ConstructorStatics.IdleRightAsset.Get();
 	RunningRightAnim = ConstructorStatics.RunningRightAsset.Get();
+	
 }
 
 // Animation Controller
 UPaperFlipbook* AMainCharacter::AnimationControl(FVector relativeVelocity)
 {
-	UPaperFlipbook* DesiredAnimation = nullptr;
+	UPaperFlipbook* DesiredAnimation = IdleForwardAnim;
 
 	const float moveHoriz = relativeVelocity.Y;
 	const float moveVert = relativeVelocity.X;

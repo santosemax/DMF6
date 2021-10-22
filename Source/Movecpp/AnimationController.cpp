@@ -81,6 +81,7 @@ UPaperFlipbook* AMainCharacter::AnimationControl(FVector relativeVelocity)
 		}
 	}
 
+	// EIGHT DIRECTIONS
 	// Moving Forwards
 	if (moveHoriz == 0 && moveVert == -1)
 	{
@@ -121,7 +122,7 @@ UPaperFlipbook* AMainCharacter::AnimationControl(FVector relativeVelocity)
 	// Moving Left Backward
 	if (moveHoriz == -1 && moveVert == 1)
 	{
-		DesiredAnimation = RunningLeftAnim;
+		DesiredAnimation = RunningBackwardAnim;
 		facingBackward = true;
 		facingLeft = false, facingRight = false, facingForward = false;
 	}

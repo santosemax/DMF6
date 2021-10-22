@@ -2,4 +2,4 @@
 
 ### Todo List:
 - [] = Create Dialogue Handler
-- [] = Create Grid Event for Combat
+- [ ] = Create Grid Event for Combat

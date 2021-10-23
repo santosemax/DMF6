@@ -19,7 +19,7 @@ AMainCharacter::AMainCharacter()
 	// Setup BoomArm
 	BoomArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("Camera boom"));	
 	BoomArm->SetupAttachment(RootComponent);
-	BoomArm->TargetArmLength = 1100.0f;
+	BoomArm->TargetArmLength = 700.0f;
 	BoomArm->bUsePawnControlRotation = true;
 
 	// Setup Camera

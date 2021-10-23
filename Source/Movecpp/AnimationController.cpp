@@ -17,11 +17,15 @@ void AMainCharacter::AnimationSetup()
 	{
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> IdleForwardAsset;      // Forward
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> WalkingForwardAsset;   
+		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> IdleRightForwardAsset;   
+		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> IdleLeftForwardAsset;   
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> WalkingRightForwardAsset;
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> WalkingLeftForwardAsset;
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> IdleBackwardAsset;     // Backward
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> WalkingBackwardAsset; 
+		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> IdleRightBackwardAsset; 
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> WalkingRightBackwardAsset; 
+		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> IdleLeftBackwardAsset; 
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> WalkingLeftBackwardAsset; 
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> IdleLeftAsset;         // Left
 		ConstructorHelpers::FObjectFinderOptional<UPaperFlipbook> WalkingLeftAsset;
@@ -31,12 +35,16 @@ void AMainCharacter::AnimationSetup()
 			// Forward
 			:IdleForwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/IdleForward.IdleForward'")),
 			WalkingForwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/WalkForward.WalkForward'")),
+			IdleRightForwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/IdleRightForward.IdleRightForward'")),
 			WalkingRightForwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/WalkRightForward.WalkRightForward'")),
+			IdleLeftForwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/IdleLeftForward.IdleLeftForward'")),
 			WalkingLeftForwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/WalkLeftForward.WalkLeftForward'")),
 			// Backward
 			IdleBackwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/IdleBackward.IdleBackward'")),
 			WalkingBackwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/WalkBackward.WalkBackward'")),
+			IdleRightBackwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/IdleRightBackward.IdleRightBackward'")),
 			WalkingRightBackwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/WalkRightBackward.WalkRightBackward'")),
+			IdleLeftBackwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/IdleLeftBackward.IdleLeftBackward'")),
 			WalkingLeftBackwardAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/WalkLeftBackward.WalkLeftBackward'")),
 			// Left
 			IdleLeftAsset(TEXT("PaperFlipbook'/Game/Flipbooks/Fei/IdleLeft.IdleLeft'")),
@@ -51,10 +59,14 @@ void AMainCharacter::AnimationSetup()
 	static FConstructorStatics ConstructorStatics;
 	IdleForwardAnim = ConstructorStatics.IdleForwardAsset.Get();                // Forward
 	WalkingForwardAnim = ConstructorStatics.WalkingForwardAsset.Get();
+	IdleRightForwardAnim = ConstructorStatics.IdleRightForwardAsset.Get();                
 	WalkingRightForwardAnim = ConstructorStatics.WalkingRightForwardAsset.Get();
+	IdleLeftForwardAnim = ConstructorStatics.IdleLeftForwardAsset.Get();                
 	WalkingLeftForwardAnim = ConstructorStatics.WalkingLeftForwardAsset.Get();
 	IdleBackwardAnim = ConstructorStatics.IdleBackwardAsset.Get();              // Backward
 	WalkingBackwardAnim = ConstructorStatics.WalkingBackwardAsset.Get();
+	IdleRightBackwardAnim = ConstructorStatics.IdleRightBackwardAsset.Get();
+	IdleLeftBackwardAnim = ConstructorStatics.IdleLeftBackwardAsset.Get();
 	WalkingRightBackwardAnim = ConstructorStatics.WalkingRightBackwardAsset.Get();
 	WalkingLeftBackwardAnim = ConstructorStatics.WalkingLeftBackwardAsset.Get();
 	IdleLeftAnim = ConstructorStatics.IdleLeftAsset.Get();                      // Left
@@ -79,10 +91,27 @@ UPaperFlipbook* AMainCharacter::AnimationControl(FVector relativeVelocity)
 		{
 			DesiredAnimation = IdleForwardAnim;
 		}
+		if (facingRightForward)
+		{
+			DesiredAnimation = IdleRightForwardAnim;
+		}
+		if (facingLeftForward)
+		{
+			DesiredAnimation = IdleLeftForwardAnim;
+		}
 		else if (facingBackward)
 		{
 			DesiredAnimation = IdleBackwardAnim;
 		}
+		if (facingRightBackward)
+		{
+			DesiredAnimation = IdleRightBackwardAnim;
+		}
+		if (facingLeftBackward)
+		{
+			DesiredAnimation = IdleLeftBackwardAnim;
+		}
+
 		else if (facingLeft)
 		{
 			DesiredAnimation = IdleLeftAnim;
@@ -100,20 +129,23 @@ UPaperFlipbook* AMainCharacter::AnimationControl(FVector relativeVelocity)
 		DesiredAnimation = WalkingForwardAnim;
 		facingForward = true;
 		facingLeft = false, facingBackward = false, facingRight = false;
+		facingLeftForward = false, facingRightForward = false, facingRightBackward = false, facingLeftBackward = false;
 	}
 	// Moving Right Forwards
 	if (moveHoriz == 1 && moveVert == -1)
 	{
 		DesiredAnimation = WalkingRightForwardAnim;
-		facingForward = true;
-		facingLeft = false, facingBackward = false, facingRight = false;
+		facingRightForward = true;
+		facingLeft = false, facingBackward = false, facingRight = false, facingForward = false;
+		facingLeftForward = false, facingRightBackward = false, facingLeftBackward = false;
 	}
 	// Moving Left Forwards
 	if (moveHoriz == -1 && moveVert == -1)
 	{
 		DesiredAnimation = WalkingLeftForwardAnim;
-		facingForward = true;
-		facingLeft = false, facingBackward = false, facingRight = false;
+		facingLeftForward = true;
+		facingLeft = false, facingBackward = false, facingRight = false, facingForward = false;
+		facingRightForward = false, facingRightBackward = false, facingLeftBackward = false;
 	}
 
 	// Moving Backwards
@@ -122,21 +154,24 @@ UPaperFlipbook* AMainCharacter::AnimationControl(FVector relativeVelocity)
 		DesiredAnimation = WalkingBackwardAnim;
 		facingBackward = true;
 		facingLeft = false, facingRight = false, facingForward = false;
+		facingRightForward = false, facingLeftForward = false, facingLeftBackward = false, facingRightBackward = false;
 
 	}
 	// Moving Right Backward
 	if (moveHoriz == 1 && moveVert == 1)
 	{
 		DesiredAnimation = WalkingRightBackwardAnim;
-		facingBackward = true;
-		facingLeft = false, facingRight = false, facingForward = false;
+		facingRightBackward = true;
+		facingLeft = false, facingRight = false, facingForward = false, facingBackward = false;
+		facingRightForward = false, facingLeftForward = false, facingLeftBackward = false;
 	}
 	// Moving Left Backward
 	if (moveHoriz == -1 && moveVert == 1)
 	{
 		DesiredAnimation = WalkingLeftBackwardAnim;
-		facingBackward = true;
-		facingLeft = false, facingRight = false, facingForward = false;
+		facingLeftBackward = true;
+		facingLeft = false, facingRight = false, facingForward = false, facingBackward = false;
+		facingRightForward = false, facingRightBackward = false, facingLeftForward = false;
 	}
 
 	// Moving Left
@@ -145,6 +180,7 @@ UPaperFlipbook* AMainCharacter::AnimationControl(FVector relativeVelocity)
 		DesiredAnimation = WalkingLeftAnim;
 		facingLeft = true;
 		facingBackward = false, facingRight = false, facingForward = false;
+		facingRightForward = false, facingLeftForward = false, facingLeftBackward = false, facingRightBackward = false;
 	}
 	// Moving Right
 	if (moveHoriz == 1 && moveVert == 0)
@@ -152,6 +188,7 @@ UPaperFlipbook* AMainCharacter::AnimationControl(FVector relativeVelocity)
 		DesiredAnimation = WalkingRightAnim;
 		facingRight = true;
 		facingBackward = false, facingLeft = false, facingForward = false;
+		facingRightForward = false, facingLeftForward = false, facingLeftBackward = false, facingRightBackward = false;
 	}
 
 	return DesiredAnimation;

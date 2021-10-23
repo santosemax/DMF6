@@ -43,11 +43,15 @@ protected:
 	// Animations/Flipbooks
 	UPaperFlipbook* IdleForwardAnim;        // Forward
 	UPaperFlipbook* WalkingForwardAnim;
+	UPaperFlipbook* IdleRightForwardAnim;
 	UPaperFlipbook* WalkingRightForwardAnim;
+	UPaperFlipbook* IdleLeftForwardAnim;
 	UPaperFlipbook* WalkingLeftForwardAnim;
 	UPaperFlipbook* IdleBackwardAnim;       // Backward
 	UPaperFlipbook* WalkingBackwardAnim;
+	UPaperFlipbook* IdleRightBackwardAnim;
 	UPaperFlipbook* WalkingRightBackwardAnim;
+	UPaperFlipbook* IdleLeftBackwardAnim;
 	UPaperFlipbook* WalkingLeftBackwardAnim;
 	UPaperFlipbook* IdleLeftAnim;           // Left
 	UPaperFlipbook* WalkingLeftAnim;
@@ -64,7 +68,11 @@ protected:
 
 	// Reading Direction Character is Facing
 	bool facingForward;
+	bool facingRightForward;
+	bool facingLeftForward;
 	bool facingBackward;
+	bool facingRightBackward;
+	bool facingLeftBackward;
 	bool facingLeft;
 	bool facingRight;
 

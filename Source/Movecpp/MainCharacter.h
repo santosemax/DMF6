@@ -41,14 +41,18 @@ protected:
 	void MoveRight(float Value);
 
 	// Animations/Flipbooks
-	UPaperFlipbook* IdleForwardAnim;
-	UPaperFlipbook* RunningForwardAnim;
-	UPaperFlipbook* IdleBackwardAnim;
-	UPaperFlipbook* RunningBackwardAnim;
-	UPaperFlipbook* IdleLeftAnim;
-	UPaperFlipbook* RunningLeftAnim;
-	UPaperFlipbook* IdleRightAnim;
-	UPaperFlipbook* RunningRightAnim;
+	UPaperFlipbook* IdleForwardAnim;        // Forward
+	UPaperFlipbook* WalkingForwardAnim;
+	UPaperFlipbook* WalkingRightForwardAnim;
+	UPaperFlipbook* WalkingLeftForwardAnim;
+	UPaperFlipbook* IdleBackwardAnim;       // Backward
+	UPaperFlipbook* WalkingBackwardAnim;
+	UPaperFlipbook* WalkingRightBackwardAnim;
+	UPaperFlipbook* WalkingLeftBackwardAnim;
+	UPaperFlipbook* IdleLeftAnim;           // Left
+	UPaperFlipbook* WalkingLeftAnim;
+	UPaperFlipbook* IdleRightAnim;          // Right
+	UPaperFlipbook* WalkingRightAnim;
 
 	// Animation Controller Function
 	void AnimationSetup();

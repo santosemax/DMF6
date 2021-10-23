@@ -55,8 +55,8 @@ void AMainCharacter::Tick(float DeltaTime)
 
 	// Get Direction of Character (Debugging)
 	relVelocity = (AMainCharacter::GetCharacterMovement()->GetLastInputVector()) / 10;
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, 
-		FString::Printf(TEXT("Rel. Velocity: %s"), *relVelocity.ToString())); // Debug Line for Movement
+	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, 
+	//	FString::Printf(TEXT("Rel. Velocity: %s"), *relVelocity.ToString())); // Debug Line for Movement
 
 	// Get Set Animation to the return of Animation Controller
 	CharacterComponent->SetFlipbook(AnimationControl(relVelocity));

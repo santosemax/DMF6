@@ -1,5 +1,5 @@
-# DMF6
+# Project Anima
 
 ### Todo List:
-- [ ] = Create Dialogue Handler
+- [ ] = Create Event Handler for Dialogue/Environment/Special Encounters
 - [ ] = Create Grid Event for Combat

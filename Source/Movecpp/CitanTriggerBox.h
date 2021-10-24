@@ -22,6 +22,8 @@ protected:
 
 public:
 
+	AMainCharacter* MainCharacter;
+
 	// Constructor sets default values for this actor's properties
 	ACitanTriggerBox();
 
@@ -33,6 +35,4 @@ public:
 	UFUNCTION()
 	void OnOverlapEnd(class AActor* OverlappedActor, class AActor* OtherActor);
 
-	UPROPERTY(EditAnywhere)
-	class AMainCharacter* IgnoreActor;
 };

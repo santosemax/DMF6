@@ -27,6 +27,10 @@ AMainCharacter::AMainCharacter()
 	Camera->SetupAttachment(BoomArm, USpringArmComponent::SocketName);
 	Camera->bUsePawnControlRotation = false;
 
+	// Setup Event Indicator
+	EventPrompt = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("Prompt"));
+	EventPrompt->SetupAttachment(RootComponent);
+
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
@@ -44,7 +48,7 @@ void AMainCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-
+	EventPrompt->SetVisibility(false);
 
 }
 
@@ -95,3 +99,12 @@ void AMainCharacter::MoveRight(float Value)
 }
 
 // Function goes here for event triggering
+void AMainCharacter::PromptPlayer()
+{
+	EventPrompt->SetVisibility(true);
+}
+
+void AMainCharacter::UnpromptPlayer()
+{
+	EventPrompt->SetVisibility(false);
+}

@@ -6,6 +6,8 @@
 #include "GameFramework/Character.h"
 #include "PaperCharacter.h"
 #include "PaperFlipbook.h"
+#include "PaperSprite.h"
+#include "PaperSpriteComponent.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
@@ -23,12 +25,16 @@ class MOVECPP_API AMainCharacter : public ACharacter
 	class UPaperFlipbookComponent* CharacterComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	class UPaperFlipbook* CharacterAnimation;
+	class UPaperSpriteComponent* EventPrompt;
 
 
 public:
 	// Sets default values for this character's properties
 	AMainCharacter();
+	
+	// Events
+	void PromptPlayer();
+	void UnpromptPlayer();
 
 protected:
 	// Called when the game starts or when spawned
@@ -67,7 +73,6 @@ protected:
 	FVector relVelocity;
 
 	// Enable Event Prompt
-	bool showEventPrompt;
 
 	// Reading Direction Character is Facing
 	bool facingForward;

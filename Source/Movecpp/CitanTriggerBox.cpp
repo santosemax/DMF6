@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "CitanTriggerBox.h"
+#include "MainCharacter.h"
+#include "Kismet/GameplayStatics.h"
 #include "DrawDebugHelpers.h"
 
 #define print(text) if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 1.5, FColor::Green, text)
@@ -18,28 +20,34 @@ void ACitanTriggerBox::BeginPlay()
 {
 	Super::BeginPlay();
 
+	MainCharacter = Cast<AMainCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
+
 	DrawDebugBox(GetWorld(), GetActorLocation(), GetComponentsBoundingBox().GetExtent(), FColor::Purple, true, -1, 0, 5);
 }
 
 void ACitanTriggerBox::OnOverlapBegin(class AActor* OverlappedActor, class AActor* OtherActor)
 {
 	// If other actor is overlapping (excluding itself)
-	if (OtherActor && (OtherActor != this) && OtherActor != IgnoreActor)
+	if (OtherActor && (OtherActor != this))
 	{
 		print("Overlap Begin");
-		printf("Overlapped Actor = %s", *OtherActor->GetName());
+		printf("Overlapped Actor = %s", *OverlappedActor->GetName());
 
-		showEventPrompt = true;
+		MainCharacter->PromptPlayer();
 	}
 }
 
 void ACitanTriggerBox::OnOverlapEnd(class AActor* OverlappedActor, class AActor* OtherActor)
 {
 	// If other actor is overlapping (excluding itself)
-	if (OtherActor && (OtherActor != this) && OtherActor != IgnoreActor)
+	if (OtherActor && (OtherActor != this))
 	{
 		print("Overlap Ended");
 		printf("Overlapped Actor = %s", *OtherActor->GetName());
+
+		MainCharacter->UnpromptPlayer();
 	}
 }
+
+
 

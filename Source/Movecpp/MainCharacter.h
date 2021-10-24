@@ -66,6 +66,9 @@ protected:
 	FVector direction;
 	FVector relVelocity;
 
+	// Enable Event Prompt
+	bool showEventPrompt;
+
 	// Reading Direction Character is Facing
 	bool facingForward;
 	bool facingRightForward;

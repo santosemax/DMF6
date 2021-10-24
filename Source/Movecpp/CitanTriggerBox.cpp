@@ -1,6 +1,5 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "CitanTriggerBox.h"
 #include "DrawDebugHelpers.h"
 
@@ -25,17 +24,19 @@ void ACitanTriggerBox::BeginPlay()
 void ACitanTriggerBox::OnOverlapBegin(class AActor* OverlappedActor, class AActor* OtherActor)
 {
 	// If other actor is overlapping (excluding itself)
-	if (OtherActor && (OtherActor != this))
+	if (OtherActor && (OtherActor != this) && OtherActor != IgnoreActor)
 	{
 		print("Overlap Begin");
-		printf("Overlapped Actor = %s", *OverlappedActor->GetName());
+		printf("Overlapped Actor = %s", *OtherActor->GetName());
+
+		showEventPrompt = true;
 	}
 }
 
 void ACitanTriggerBox::OnOverlapEnd(class AActor* OverlappedActor, class AActor* OtherActor)
 {
 	// If other actor is overlapping (excluding itself)
-	if (OtherActor && (OtherActor != this))
+	if (OtherActor && (OtherActor != this) && OtherActor != IgnoreActor)
 	{
 		print("Overlap Ended");
 		printf("Overlapped Actor = %s", *OtherActor->GetName());

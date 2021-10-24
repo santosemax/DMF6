@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Engine/TriggerBox.h"
+#include "MainCharacter.h"
 #include "CitanTriggerBox.generated.h"
 
 /**
@@ -31,4 +32,7 @@ public:
 	// declare overlap end function
 	UFUNCTION()
 	void OnOverlapEnd(class AActor* OverlappedActor, class AActor* OtherActor);
+
+	UPROPERTY(EditAnywhere)
+	class AMainCharacter* IgnoreActor;
 };

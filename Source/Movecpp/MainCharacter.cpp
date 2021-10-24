@@ -48,6 +48,7 @@ void AMainCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
+	EventPrompt->SetSpriteColor(FLinearColor(1.0, 1.0, 1.0, 0.0));
 	EventPrompt->SetVisibility(false);
 
 }
@@ -74,6 +75,9 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMainCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
+
+	// Bind Event Button
+	PlayerInputComponent->BindAction("EventAction", IE_Pressed, this, &AMainCharacter::EventActivated);
 
 }
 
@@ -102,9 +106,28 @@ void AMainCharacter::MoveRight(float Value)
 void AMainCharacter::PromptPlayer()
 {
 	EventPrompt->SetVisibility(true);
+	EventPrompt->SetSpriteColor(FLinearColor(1.0, 1.0, 1.0, 1.0));
+	eventCanTrigger = true;
+
+	// Check if E is pressed
 }
 
 void AMainCharacter::UnpromptPlayer()
 {
 	EventPrompt->SetVisibility(false);
+	EventPrompt->SetSpriteColor(FLinearColor(1.0, 1.0, 1.0, 0.0));
+	eventCanTrigger = false;
+}
+
+void AMainCharacter::EventActivated()
+{
+
+	if (eventCanTrigger)
+	{
+		// Check if Dialogue (Load Textbox w/ Custom Dialogue Object)
+
+
+		// Check if Environmental
+
+	}
 }

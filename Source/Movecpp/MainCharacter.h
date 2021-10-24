@@ -35,6 +35,8 @@ public:
 	// Events
 	void PromptPlayer();
 	void UnpromptPlayer();
+	void EventActivated();
+	bool eventCanTrigger;
 
 protected:
 	// Called when the game starts or when spawned
@@ -71,8 +73,6 @@ protected:
 	// Gettings Current Velocity
 	FVector direction;
 	FVector relVelocity;
-
-	// Enable Event Prompt
 
 	// Reading Direction Character is Facing
 	bool facingForward;

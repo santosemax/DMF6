@@ -1,6 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "MainCharacter.h"
+#include "DialogueWidget.h"
 #include "Camera/CameraComponent.h"
+#include "Blueprint/UserWidget.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "PaperFlipbookComponent.h"
@@ -50,7 +52,6 @@ void AMainCharacter::BeginPlay()
 
 	EventPrompt->SetSpriteColor(FLinearColor(1.0, 1.0, 1.0, 0.0));
 	EventPrompt->SetVisibility(false);
-
 }
 
 // Called every frame

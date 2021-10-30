@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DialogueWidget.h"
 #include "GameFramework/Character.h"
 #include "PaperCharacter.h"
 #include "PaperFlipbook.h"
@@ -29,6 +28,8 @@ class MOVECPP_API AMainCharacter : public ACharacter
 	class UPaperSpriteComponent* EventPrompt;
 
 
+
+
 public:
 	// Sets default values for this character's properties
 	AMainCharacter();
@@ -39,8 +40,6 @@ public:
 	void EventActivated();
 	bool eventCanTrigger;
 
-	// Dialogue Widget Handler
-	UDialogueWidget* DialogueInterface;
 
 protected:
 	// Called when the game starts or when spawned

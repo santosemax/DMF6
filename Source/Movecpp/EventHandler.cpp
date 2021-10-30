@@ -14,10 +14,6 @@ void AMainCharacter::PromptPlayer()
 	eventCanTrigger = true;
 
 	// Allow dialogue popup to trigger if E is pressed
-	DialogueInterface = CreateWidget<UDialogueWidget>(this, UDialogueWidget::StaticClass());
-	FInputModeGameAndUI Mode;
-	Mode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
-
 }
 
 void AMainCharacter::UnpromptPlayer()
@@ -30,18 +26,11 @@ void AMainCharacter::UnpromptPlayer()
 void AMainCharacter::EventActivated()
 {
 
-	//DialogueInterface = CreateWidget<UDialogueWidget>(this, UDialogueWidget::StaticClass());
-	//FInputModeGameAndUI Mode;
-	//Mode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
-
-	//DialogueInterface->AddToViewport(9999); // 9999 -> Z-Order so its on the very top.
-
 	if (eventCanTrigger)
 	{
 		// Check if Dialogue (Load Textbox w/ Custom Dialogue Object)
-
+	
 		// Check if Environmental
-
+	
 	}
 }
-

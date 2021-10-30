@@ -16,6 +16,9 @@ class MOVECPP_API UDialogueWidget : public UUserWidget
 
 	virtual bool Initialize();
 
+public:
+	void SetText() const;
+	
 protected:
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* PersonLabel;
@@ -26,6 +29,7 @@ protected:
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* BodyContent;
 
-	void NativeConstruct() override;
+	virtual void NativeConstruct() override;
+
 	
 };

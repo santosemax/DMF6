@@ -2,8 +2,8 @@
 
 
 #include "DialogueWidget.h"
-#include <Components/Button.h>
-#include <Components/TextBlock.h>
+#include "Components/Button.h"
+#include "Components/TextBlock.h"
 
 bool UDialogueWidget::Initialize()
 {
@@ -20,4 +20,11 @@ void UDialogueWidget::NativeConstruct()
 	PersonLabel->SetText(FText::FromString("Citan"));
 
 	BodyContent->SetText(FText::FromString("My name is Citan. I can't say anything else about myself since Filippo wants to play Xenogears lol."));
+}
+
+void UDialogueWidget::SetText() const
+{
+	PersonLabel->SetText(FText::FromString("Test"));
+	
+	BodyContent->SetText(FText::FromString("Trying to see if this works."));
 }

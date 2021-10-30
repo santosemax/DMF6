@@ -14,12 +14,17 @@ class MOVECPP_API UDialogueWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
+	virtual bool Initialize();
+
 protected:
 	UPROPERTY(meta = (BindWidget))
 	class UTextBlock* PersonLabel;
 
 	UPROPERTY(meta = (BindWidget))
 	class UButton* NextButton;
+
+	UPROPERTY(meta = (BindWidget))
+	class UTextBlock* BodyContent;
 
 	void NativeConstruct() override;
 	

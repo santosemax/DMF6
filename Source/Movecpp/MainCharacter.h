@@ -38,6 +38,8 @@ public:
 	void EventActivated();
 	bool eventCanTrigger;
 
+	// Dialogue Struct
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

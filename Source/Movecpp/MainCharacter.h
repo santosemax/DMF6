@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "DialogueWidget.h"
 #include "GameFramework/Character.h"
 #include "PaperCharacter.h"
 #include "PaperFlipbook.h"
@@ -86,6 +87,9 @@ protected:
 	bool facingLeftBackward;
 	bool facingLeft;
 	bool facingRight;
+
+	// Dialogue Widget
+	class DialogueWidget* DialogueWidget;
 
 public:	
 	// Called every frame

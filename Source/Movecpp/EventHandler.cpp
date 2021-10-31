@@ -1,10 +1,4 @@
 #include "MainCharacter.h"
-#include "DialogueWidget.h"
-#include "GameFramework/PlayerController.h"
-#include "Engine/EngineBaseTypes.h"
-#include "PaperFlipbookComponent.h"
-#include "PaperCharacter.h"
-#include "PaperFlipbook.h"
 
 // Function goes here for event triggering
 void AMainCharacter::PromptPlayer()

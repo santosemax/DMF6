@@ -14,7 +14,6 @@ class MOVECPP_API UDialogueWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-	virtual bool Initialize();
 
 public:
 	void SetText() const;

@@ -52,6 +52,7 @@ void AMainCharacter::BeginPlay()
 
 	EventPrompt->SetSpriteColor(FLinearColor(1.0, 1.0, 1.0, 0.0));
 	EventPrompt->SetVisibility(false);
+
 }
 
 // Called every frame
@@ -87,7 +88,7 @@ void AMainCharacter::MoveForward(float Value)
 {
 	direction = FVector(10.0f, 0.0f, 0.0f);
 
-	if (Controller != NULL && Value != 0.0)
+	if (Controller != nullptr && Value != 0.0)
 	{
 		AddMovementInput(direction, Value);
 	}
@@ -97,7 +98,7 @@ void AMainCharacter::MoveRight(float Value)
 {
 	direction = FVector(0.0f, 10.0f, 0.0f);
 
-	if (Controller != NULL && Value != 0.0)
+	if (Controller != nullptr && Value != 0.0)
 	{
 		AddMovementInput(direction, Value);
 	}

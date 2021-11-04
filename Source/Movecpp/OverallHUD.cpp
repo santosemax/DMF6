@@ -2,7 +2,7 @@
 
 
 #include "OverallHUD.h"
-#include "SDialogueWidget.h"
+#include "SPauseWidget.h"
 #include "Widgets/SWeakWidget.h"
 #include "Engine/Engine.h"
 #include "GameFramework/PlayerController.h"
@@ -19,8 +19,8 @@ void AOverallHUD::ShowMenu()
 	if(GEngine && GEngine->GameViewport)
 	{
 
-		DialogueWidget = SNew(SDialogueWidget).OwningHUD(this);
-		GEngine->GameViewport->AddViewportWidgetContent(SAssignNew(DialogueWidgetContainer, SWeakWidget).PossiblyNullContent(DialogueWidget.ToSharedRef()));
+		PauseWidget = SNew(SPauseWidget).OwningHUD(this);
+		GEngine->GameViewport->AddViewportWidgetContent(SAssignNew(PauseWidgetContainer, SWeakWidget).PossiblyNullContent(PauseWidget.ToSharedRef()));
 
 		if (PlayerOwner)
 		{
@@ -32,9 +32,9 @@ void AOverallHUD::ShowMenu()
 
 void AOverallHUD::RemoveMenu()
 {
-	if (GEngine && GEngine->GameViewport && DialogueWidget.IsValid() && DialogueWidgetContainer.IsValid())
+	if (GEngine && GEngine->GameViewport && PauseWidget.IsValid() && PauseWidgetContainer.IsValid())
 	{
-		GEngine->GameViewport->RemoveViewportWidgetContent(DialogueWidgetContainer.ToSharedRef());
+		GEngine->GameViewport->RemoveViewportWidgetContent(PauseWidgetContainer.ToSharedRef());
 
 		if (PlayerOwner)
 		{

@@ -1,13 +1,13 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "SDialogueWidget.h"
+#include "SPauseWidget.h"
 #include "OverallHUD.h"
 #include "GameFramework/PlayerController.h"
 
 #define LOCTEXT_NAMESPACE "MainMenu"
 
-void SDialogueWidget::Construct(const FArguments& InArgs)
+void SPauseWidget::Construct(const FArguments& InArgs)
 {
 	// Avoid annoying error message (?)
 	bCanSupportFocus = true;
@@ -68,7 +68,7 @@ void SDialogueWidget::Construct(const FArguments& InArgs)
 				.Padding(ButtonPadding)
 				[
 					SNew(SButton)
-					.OnClicked(this, &SDialogueWidget::OnPlayClicked)
+					.OnClicked(this, &SPauseWidget::OnPlayClicked)
 					[
 						SNew(STextBlock)
 						.Font(ButtonTextStyle)
@@ -81,7 +81,7 @@ void SDialogueWidget::Construct(const FArguments& InArgs)
 	
 }
 
-FReply SDialogueWidget::OnPlayClicked() const
+FReply SPauseWidget::OnPlayClicked() const
 {
 
 	UE_LOG(LogTemp, Warning, TEXT("PLAY CLICKED"));

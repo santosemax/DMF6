@@ -8,10 +8,10 @@
 /**
  * 
  */
-class SDialogueWidget : public SCompoundWidget
+class SPauseWidget : public SCompoundWidget
 {
 public:
-	SLATE_BEGIN_ARGS(SDialogueWidget) {}
+	SLATE_BEGIN_ARGS(SPauseWidget) {}
 	
 	SLATE_ARGUMENT(TWeakObjectPtr<class AOverallHUD>, OwningHUD)
 	

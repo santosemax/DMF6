@@ -20,8 +20,8 @@ void AMenuPlayerController::SetupInputComponent()
 
 void AMenuPlayerController::OpenMenu()
 {
-	if (AOverallHUD* DialogueHUD = Cast<AOverallHUD>(GetHUD()))
+	if (AOverallHUD* PauseHUD = Cast<AOverallHUD>(GetHUD()))
 	{
-		DialogueHUD->ShowMenu();
+		PauseHUD->ShowMenu();
 	}
 }

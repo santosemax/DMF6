@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 #include "MainCharacter.h"
-#include "DialogueWidget.h"
 #include "Camera/CameraComponent.h"
 #include "Blueprint/UserWidget.h"
+#include "OverallHUD.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "PaperFlipbookComponent.h"
@@ -77,9 +77,6 @@ void AMainCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AMainCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AMainCharacter::MoveRight);
-
-	// Bind Event Button
-	PlayerInputComponent->BindAction("EventAction", IE_Pressed, this, &AMainCharacter::EventActivated);
 
 }
 

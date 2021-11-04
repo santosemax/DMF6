@@ -3,11 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DialogueWidget.h"
 #include "GameFramework/Character.h"
 #include "PaperCharacter.h"
 #include "PaperFlipbook.h"
-#include "PaperSprite.h"
 #include "PaperSpriteComponent.h"
 #include "MainCharacter.generated.h"
 
@@ -38,9 +36,6 @@ public:
 	// Events
 	void PromptPlayer();
 	void UnpromptPlayer();
-	void EventActivated();
-	bool eventCanTrigger;
-
 
 protected:
 	// Called when the game starts or when spawned

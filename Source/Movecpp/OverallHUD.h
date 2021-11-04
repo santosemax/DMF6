@@ -15,8 +15,8 @@ class MOVECPP_API AOverallHUD : public AHUD
 	GENERATED_BODY()
 
 protected:
-	TSharedPtr<class SDialogueWidget> DialogueWidget;
-	TSharedPtr<class SWidget> DialogueWidgetContainer;
+	TSharedPtr<class SPauseWidget> PauseWidget;
+	TSharedPtr<class SWidget> PauseWidgetContainer;
 
 	virtual void BeginPlay() override;
 

@@ -13,15 +13,7 @@ UCLASS()
 class MOVECPP_API AMovecppGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
-	
-protected:
-	// Creating the Dialogue Widget
-	UPROPERTY(EditAnywhere, Category = "Class Types")
-	TSubclassOf<UUserWidget> WidgetClass;
 
-	UPROPERTY(VisibleInstanceOnly, Category = "Runtime")
-	class UDialogueWidget* DialogueWidget;
-
-	virtual void BeginPlay() override;
+	AMovecppGameModeBase();
 
 };

@@ -4,14 +4,12 @@
 #include "MovecppGameModeBase.h"
 #include "Blueprint/UserWidget.h"
 #include "DialogueWidget.h"
+#include "MenuPlayerController.h"
+#include "OverallHUD.h"
 
-void AMovecppGameModeBase::BeginPlay()
+AMovecppGameModeBase::AMovecppGameModeBase()
 {
-	// Getting Widget
-	if (IsValid(WidgetClass))
-	{
-		DialogueWidget = Cast<UDialogueWidget>(CreateWidget(GetWorld(), WidgetClass));
-
-		DialogueWidget->AddToViewport();
-	}
+	PlayerControllerClass = AMenuPlayerController::StaticClass();
+	HUDClass = AOverallHUD::StaticClass();
 }
+

@@ -13,7 +13,18 @@ UCLASS()
 class MOVECPP_API AMovecppGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+<<<<<<< HEAD
 
 	AMovecppGameModeBase();
+=======
+	
+protected:
+
+
+public:
+
+
+private:
+>>>>>>> 8ccad971664484f2aeb47d54ec8f94ffb6a43ec4
 
 };

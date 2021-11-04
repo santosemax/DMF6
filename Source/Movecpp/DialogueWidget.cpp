@@ -5,13 +5,6 @@
 #include "Components/Button.h"
 #include "Components/TextBlock.h"
 
-bool UDialogueWidget::Initialize()
-{
-	Super::Initialize();
-
-	return true;
-}
-
 void UDialogueWidget::NativeConstruct()
 {
 	Super::NativeConstruct();

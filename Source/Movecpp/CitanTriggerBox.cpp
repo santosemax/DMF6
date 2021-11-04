@@ -30,6 +30,8 @@ void ACitanTriggerBox::OnOverlapBegin(class AActor* OverlappedActor, class AActo
 	// If other actor is overlapping (excluding itself)
 	if (OtherActor && (OtherActor != this))
 	{
+		eventPossible = true;
+		
 		print("Overlap Begin");
 		printf("Overlapped Actor = %s", *OverlappedActor->GetName());
 
@@ -42,6 +44,8 @@ void ACitanTriggerBox::OnOverlapEnd(class AActor* OverlappedActor, class AActor*
 	// If other actor is overlapping (excluding itself)
 	if (OtherActor && (OtherActor != this))
 	{
+		eventPossible = false;
+		
 		print("Overlap Ended");
 		printf("Overlapped Actor = %s", *OtherActor->GetName());
 

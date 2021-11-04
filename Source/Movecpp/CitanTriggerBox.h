@@ -24,6 +24,9 @@ public:
 
 	AMainCharacter* MainCharacter;
 
+	// Access this variable to start interaction
+	bool eventPossible;
+
 	// Constructor sets default values for this actor's properties
 	ACitanTriggerBox();
 

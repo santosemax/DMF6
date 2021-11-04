@@ -3,6 +3,7 @@
 
 #include "MenuPlayerController.h"
 #include "OverallHUD.h"
+#include "CitanTriggerBox.h"
 
 AMenuPlayerController::AMenuPlayerController()
 {
@@ -14,14 +15,25 @@ void AMenuPlayerController::SetupInputComponent()
 
 	if (InputComponent)
 	{
-		InputComponent->BindAction("OpenMenu", IE_Pressed, this, &AMenuPlayerController::OpenMenu);
+		InputComponent->BindAction("OpenMenu", IE_Pressed, this, &AMenuPlayerController::OpenPauseMenu);
+		InputComponent->BindAction("EventAction", IE_Pressed, this, &AMenuPlayerController::OpenDialogue);
 	}
 }
 
-void AMenuPlayerController::OpenMenu()
+// Open Pause Menu if Escape is pressed (Shift-Escape for Preview in unreal editor)
+void AMenuPlayerController::OpenPauseMenu()
 {
 	if (AOverallHUD* PauseHUD = Cast<AOverallHUD>(GetHUD()))
 	{
 		PauseHUD->ShowMenu();
 	}
 }
+
+void AMenuPlayerController::OpenDialogue()
+{
+	if (AOverallHUD* DialogueHUD = Cast<AOverallHUD>(GetHUD()))
+	{
+		DialogueHUD->ShowDialogue();
+	}
+}
+

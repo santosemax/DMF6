@@ -8,22 +8,22 @@
 /**
  * 
  */
-class SPauseWidget : public SCompoundWidget
+class SDialogueWidget : public SCompoundWidget
 {
 public:
-	SLATE_BEGIN_ARGS(SPauseWidget) {}
+	
+	SLATE_BEGIN_ARGS(SDialogueWidget) {}
 	
 	SLATE_ARGUMENT(TWeakObjectPtr<class AOverallHUD>, OwningHUD)
 	
 	SLATE_END_ARGS()
-	
-	// Every widget needs a construction function
-	void Construct(const FArguments& InArgs);
 
-	FReply OnPlayClicked() const;
+	// Construction Function
+	void Construct(const FArguments& InArgs);
 
 	// HUD that creates this widget
 	TWeakObjectPtr<class AOverallHUD> OwningHUD;
 
 	virtual bool SupportsKeyboardFocus() const override { return true; };
+	
 };

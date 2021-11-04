@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CitanTriggerBox.h"
 #include "GameFramework/PlayerController.h"
 #include "MenuPlayerController.generated.h"
 
@@ -18,6 +19,8 @@ protected:
 	
 	AMenuPlayerController();
 	virtual void SetupInputComponent() override;
-	void OpenMenu();
+	
+	void OpenPauseMenu();
+	void OpenDialogue();
 	
 };

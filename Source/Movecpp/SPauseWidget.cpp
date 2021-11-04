@@ -10,16 +10,17 @@
 void SPauseWidget::Construct(const FArguments& InArgs)
 {
 	// Avoid annoying error message (?)
-	bCanSupportFocus = true;
+	//bCanSupportFocus = true;
 
 	// Cast reference to OwningHUD
 	OwningHUD = InArgs._OwningHUD;
 	
+	// -- CREATE WIDGET -------------------------------
 	const FMargin ContentPadding = FMargin(500.f, 300.f);
 	const FMargin ButtonPadding = FMargin(10.f);
 	
 	const FText PersonLabel = LOCTEXT("PersonLabel", "Project Anima Demo");
-	const FText BodyText = LOCTEXT("BodyText", "This is a test Slate Widget");
+	const FText BodyText = LOCTEXT("BodyText", "This is a test pause menu");
 	const FText ButtonText = LOCTEXT("ButtonText", "Play Demo");
 
 	// Font Stuff
@@ -75,6 +76,7 @@ void SPauseWidget::Construct(const FArguments& InArgs)
 						.Text(ButtonText)
 						.Justification(ETextJustify::Center)
 					]
+					.VAlign(VAlign_Center)
 				]
 			]
 		];

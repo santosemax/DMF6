@@ -9,7 +9,7 @@
  * 
  */
 class SDialogueWidget : public SCompoundWidget
-{
+{	
 public:
 	
 	SLATE_BEGIN_ARGS(SDialogueWidget) {}
@@ -25,5 +25,8 @@ public:
 	TWeakObjectPtr<class AOverallHUD> OwningHUD;
 
 	virtual bool SupportsKeyboardFocus() const override { return true; };
-	
+
+	// Portrait Data
+	UTexture2D* CitanTexture;
+
 };

@@ -20,7 +20,7 @@ void SDialogueWidget::Construct(const FArguments& InArgs)
 	const FText BodyText = LOCTEXT("BodyText", "This is a test Slate Widget");
 	
 	// Portrait Image (TEST EXAMPLE) - 1. Load/Bake Texture 2. Load into Brush
-	CitanTexture = LoadObject<UTexture2D>(NULL, TEXT("Texture2D'/Game/UI/TextBoxAssets/terra-portrait.terra-portrait'"), NULL, LOAD_None, NULL)
+	CitanTexture = LoadObject<UTexture2D>(NULL, TEXT("Texture2D'/Game/UI/TextBoxAssets/terra-portrait.terra-portrait'"), NULL, LOAD_None, NULL);
 	FSlateImageBrush* UseForCitan = new FSlateImageBrush(CitanTexture, FVector2D(156, 160));
 	// Font Stuff
 	FSlateFontInfo BodyTextStyle = FCoreStyle::Get().GetFontStyle("EmbossedText");

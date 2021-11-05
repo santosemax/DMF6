@@ -21,11 +21,8 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-
+	// Used to access MainCharacter Components
 	AMainCharacter* MainCharacter;
-
-	// Access this variable to start interaction
-	bool eventPossible;
 
 	// Constructor sets default values for this actor's properties
 	ACitanTriggerBox();

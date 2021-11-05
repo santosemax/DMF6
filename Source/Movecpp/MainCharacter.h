@@ -37,6 +37,9 @@ public:
 	void PromptPlayer();
 	void UnpromptPlayer();
 
+	// Event Possible? - Used as a global variable to see whether a dialogue box/Event can trigger
+	bool eventPossible;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

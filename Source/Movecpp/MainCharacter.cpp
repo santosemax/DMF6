@@ -53,6 +53,8 @@ void AMainCharacter::BeginPlay()
 	EventPrompt->SetSpriteColor(FLinearColor(1.0, 1.0, 1.0, 0.0));
 	EventPrompt->SetVisibility(false);
 
+	eventPossible = false;
+
 }
 
 // Called every frame

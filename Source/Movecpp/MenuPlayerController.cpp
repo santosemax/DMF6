@@ -3,10 +3,19 @@
 
 #include "MenuPlayerController.h"
 #include "OverallHUD.h"
+#include "Kismet/GameplayStatics.h"
 #include "CitanTriggerBox.h"
 
 AMenuPlayerController::AMenuPlayerController()
 {
+}
+
+// Cast to MainCharacter so we can access eventPossible boolean
+void AMenuPlayerController::BeginPlay()
+{
+	Super::BeginPlay();
+	
+	MainCharacter = Cast<AMainCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 }
 
 void AMenuPlayerController::SetupInputComponent()
@@ -29,11 +38,16 @@ void AMenuPlayerController::OpenPauseMenu()
 	}
 }
 
+// Open Dialogue Box (If an Event is Possible)
 void AMenuPlayerController::OpenDialogue()
 {
-	if (AOverallHUD* DialogueHUD = Cast<AOverallHUD>(GetHUD()))
+	if (MainCharacter->eventPossible == true)
 	{
-		DialogueHUD->ShowDialogue();
+		if (AOverallHUD* DialogueHUD = Cast<AOverallHUD>(GetHUD()))
+		{
+			DialogueHUD->ShowDialogue();
+		}
 	}
+	
 }
 

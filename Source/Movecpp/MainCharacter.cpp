@@ -62,8 +62,9 @@ void AMainCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// Get Direction of Character (Debugging)
 	relVelocity = (AMainCharacter::GetCharacterMovement()->GetLastInputVector()) / 10;
+
+	// Get Direction of Character (Debugging)
 	//GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, 
 	//	FString::Printf(TEXT("Rel. Velocity: %s"), *relVelocity.ToString())); // Debug Line for Movement
 

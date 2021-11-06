@@ -26,6 +26,9 @@ public:
 
 	virtual bool SupportsKeyboardFocus() const override { return true; };
 
+	// Backdrop Data
+	UTexture2D* BackdropTexture;
+
 	// Portrait Data
 	UTexture2D* CitanTexture;
 

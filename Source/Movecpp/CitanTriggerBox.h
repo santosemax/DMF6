@@ -20,6 +20,7 @@ protected:
 	// Called when game starts/object spawned
 	virtual void BeginPlay() override;
 
+
 public:
 	// Used to access MainCharacter Components
 	AMainCharacter* MainCharacter;
@@ -28,7 +29,7 @@ public:
 	ACitanTriggerBox();
 
 	// Overlap begin function declaration
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void OnOverlapBegin(class AActor* OverlappedActor, class AActor* OtherActor);
 
 	// declare overlap end function

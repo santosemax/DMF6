@@ -7,6 +7,7 @@
 #include "PaperCharacter.h"
 #include "PaperFlipbook.h"
 #include "PaperSpriteComponent.h"
+#include "Components/BoxComponent.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
@@ -26,6 +27,9 @@ class MOVECPP_API AMainCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	class UPaperSpriteComponent* EventPrompt;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* BoxCollider;
+
 
 
 
@@ -36,6 +40,13 @@ public:
 	// Events
 	void PromptPlayer();
 	void UnpromptPlayer();
+	UFUNCTION()
+	void OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
+		class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
+		const FHitResult& SweepResult);
+	UFUNCTION()
+	void OnOverlapEnd(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor,
+		class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	// Event Possible? - Used as a global variable to see whether a dialogue box/Event can trigger
 	bool eventPossible;

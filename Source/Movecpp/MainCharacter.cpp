@@ -2,11 +2,13 @@
 #include "MainCharacter.h"
 #include "Camera/CameraComponent.h"
 #include "Blueprint/UserWidget.h"
-#include "OverallHUD.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Components/BoxComponent.h"
+#include "Kismet/GameplayStatics.h"
 #include "PaperFlipbookComponent.h"
 #include "PaperCharacter.h"
+
 
 // Sets default values
 AMainCharacter::AMainCharacter()
@@ -33,6 +35,11 @@ AMainCharacter::AMainCharacter()
 	EventPrompt = CreateDefaultSubobject<UPaperSpriteComponent>(TEXT("Prompt"));
 	EventPrompt->SetupAttachment(RootComponent);
 
+	// Setup Box Collider (and its overlap functions)
+	BoxCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxCollider"));
+	BoxCollider->SetCollisionProfileName(TEXT("Collider"));
+	BoxCollider->SetupAttachment(RootComponent);
+
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
@@ -54,6 +61,10 @@ void AMainCharacter::BeginPlay()
 	EventPrompt->SetVisibility(false);
 
 	eventPossible = false;
+
+	// Connect BoxCollider Overlap Function
+	BoxCollider->OnComponentBeginOverlap.AddDynamic(this, &AMainCharacter::OnOverlapBegin);
+	BoxCollider->OnComponentEndOverlap.AddDynamic(this, &AMainCharacter::OnOverlapEnd);
 
 }
 
@@ -103,3 +114,5 @@ void AMainCharacter::MoveRight(float Value)
 		AddMovementInput(direction, Value);
 	}
 }
+
+

@@ -12,6 +12,14 @@
 				"Engine",
 				"UMG"
 			]
+		},
+		{
+			"Name": "CsvReader",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
 	]
 }
